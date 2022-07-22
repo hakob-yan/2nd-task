@@ -1,0 +1,136 @@
+.Amount {
+    width: auto;
+    background-color: #474767;
+    border-radius: 50px;
+    box-shadow: 0px 0px 50px black;
+}
+
+.Title {
+    color: white;
+    font-size: 24px;
+    padding: 10px 0px;
+}
+
+.Pay {
+    position: relative;
+    padding: 10px;
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #33334B;
+    border-radius: 10px;
+}
+
+.Fees {
+    width: 80%;
+    height: 150px;
+    margin-left: 75px;
+    background-color: #474767;
+    border-left: 2px solid #33334B;
+    padding-top: 55px;
+}
+
+.Network-calc {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    background-color: rgba(51, 51, 75, 0.43);
+    border-radius: 10px;
+    border: 2px solid #33334B;
+}
+
+.Receive {
+    position: relative;
+    padding: 10px;
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #33334B;
+    border-radius: 10px;
+}
+
+.Buy-button {
+    border: none;
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #783AFF;
+    color: white;
+    margin: 20px 0;
+}
+
+.h5 {
+    color: white;
+    text-align: left;
+}
+
+.Input-value {
+    position: absolute;
+    left: 5px;
+    color: white;
+    width: 60%;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #33334B;
+    outline: none;
+    border: none;
+}
+
+.Currency {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Img {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background-image: url('../assets/flag.png');
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 30px;
+    right: 5px;
+}
+
+.Img2 {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background-image: url('../assets/wev.png');
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 30px;
+    right: 5px;
+}
+
+.Count {
+    width: 160px;
+    font-size: 9px;
+    color: #8484ae;
+    padding: 5px 10px;
+}
+
+.Operator {
+    color: white;
+    font-size: 35px;
+}
+
+.Fee {
+    color: white;
+    font-size: 20px;
+}
+
+.USD {
+    position: absolute;
+    top: 35px;
+    right: 50px;
+}
