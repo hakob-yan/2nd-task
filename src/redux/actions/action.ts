@@ -1,53 +1,39 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
-import { SOURCE, TARGET, UPDATE } from './actionTypes'
-interface IData {
-    type: string,
-    payload: any
-}
-const REQUEST = `https://api-qjoa5a5qtq-uc.a.run.app/quotes`;
+import { UNVALID, UPDATE, VALID } from './actionTypes'
+import { BASEURL, TOKEN, QUOTES, CURRENCY } from './consts';
 
-export function sourceAmount(data: string): IData {
+const axiosInst = axios.create({ baseURL: BASEURL })
+
+const valid = () => {
     return {
-        type: SOURCE,
-        payload: data
-    }
-}
-export function targetAmount(data: string): IData {
-    return {
-        type: TARGET,
-        payload: data
+        type: VALID,
     }
 }
 
+export const unValid = (payload: string) => {
+    return {
+        type: UNVALID,
+        payload: payload
+    }
+}
 
-export const sendPostRequestAmount = (amount: number) => async (dispatch: Dispatch) => {
+
+export const sendPostRequest = (amount: number, target: string) => async (dispatch: Dispatch) => {
     try {
-        const resp = await axios.post(REQUEST, {
-            source_currency: "USD",
-            target_crypto_asset_id: "b2384bf2-b14d-4916-aa97-85633ef05742",
-            source_amount: `${amount}`
-        });
+        const resp = await axiosInst.post(QUOTES, {
+            source_currency: CURRENCY,
+            target_crypto_asset_id: TOKEN,
+            [target]: `${amount}`
+        })
+
+        dispatch(valid())
         dispatch({ type: UPDATE, payload: resp.data });
 
-    } catch (err) {
-        console.error(err);
-    }
+    } catch (err: any) {
+        const e = err.response.data.message
+        dispatch(unValid(e))
+       }
 }
 
 
-export const sendPostRequestTarget = (amount: number) => async (dispatch: Dispatch) => {
-    try {
-        const resp = await axios.post(REQUEST, {
-            source_currency: "USD",
-            target_crypto_asset_id: "b2384bf2-b14d-4916-aa97-85633ef05742",
-            target_amount: `${amount}`
-        });
-        
-        dispatch({ type: UPDATE, payload: resp.data });
-
-    } catch (err) {
-        // Handle Error Here
-        console.error(err);
-    }
-}
