@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { UNVALID, UPDATE, VALID } from './actionTypes'
-import { BASEURL, TOKEN, QUOTES, CURRENCY } from './consts';
+import { BASEURL, TOKEN, QUOTES, CURRENCY,CHECKOUT } from './consts';
 
 const axiosInst = axios.create({ baseURL: BASEURL })
 
@@ -24,6 +24,7 @@ export const sendPostRequest = (amount: number, target: string) => async (dispat
         const resp = await axiosInst.post(QUOTES, {
             source_currency: CURRENCY,
             target_crypto_asset_id: TOKEN,
+            payment_method: CHECKOUT,
             [target]: `${amount}`
         })
 
